@@ -1,9 +1,9 @@
 #include <ESP8266HTTPClient.h>
 #include <ESP8266WiFi.h>
 
-const char *ssid = "home_ap";
-const char *password = "mohanad2001-loay2004";
-const char *serverUrl = "http://192.168.1.5:5000/update_sensor_data";
+const char *ssid = "";
+const char *password = "";
+const char *serverUrl = "http://your_server_ip:5000/update_sensor_data";
 
 void setup() {
   Serial.begin(115200);
@@ -22,7 +22,7 @@ void loop() {
   http.begin(client, serverUrl);  // Use begin(WiFiClient, url) here
   http.addHeader("Content-Type", "application/json");
 
-  String jsonData = "{\"sensor_value\": 123}";
+  String jsonData = "{\"value\": 1}";
   int httpCode = http.POST(jsonData);
 
   if (httpCode == HTTP_CODE_OK) {
