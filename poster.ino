@@ -3,7 +3,7 @@
 
 const char *ssid = "";
 const char *password = "";
-const char *serverUrl = "http://your_server_ip:5000/update_sensor_data";
+const char *serverUrl = "http://your_server_ip:5000/update_data";
 
 void setup() {
   Serial.begin(115200);
@@ -31,7 +31,7 @@ void loop() {
     digitalWrite(2, HIGH);
     
   } else {
-    Serial.println("Failed to update sensor data. HTTP code: " + String(httpCode));
+    Serial.println("Failed to update data. HTTP code: " + String(httpCode));
   }
 
   http.end();
@@ -39,10 +39,4 @@ void loop() {
   delay(5000);
   digitalWrite(2, LOW);  // Adjust the delay according to your needs
 }
-
-/*
-const char *ssid = "home_ap";
-const char *password = "mohanad2001-loay2004";
-const char *serverUrl = "http://192.168.1.5:5000/update_sensor_data";
-*/
 
