@@ -12,16 +12,16 @@
     </style>
 </head>
 <body>
-    <h1>Sensor Data Dashboard</h1>
+    <h1>Dashboard</h1>
     <div id="sensorData"></div>
 
     <script>
         function fetchData() {
-            fetch('http://192.168.1.5:5000/get_sensor_data')
+            fetch('http://your_server_ip:5000/get_sensor_data')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('sensorData').innerHTML = `
-                        <p>Sensor Value: ${data.sensor_value}</p>
+                        <p>Value from the NodeMCU: ${data.sensor_value}</p>
                     `;
                 })
                 .catch(error => {
